@@ -63,6 +63,7 @@ class GithubRepository(private val service: GithubService) {
         Pager(
             config = PagingConfig(
                 pageSize = NETWORK_PAGE_SIZE,
+                initialLoadSize = NETWORK_PAGE_SIZE,
                 enablePlaceholders = false
             ),
             pagingSourceFactory = { GithubPagingSource(service, query) }
