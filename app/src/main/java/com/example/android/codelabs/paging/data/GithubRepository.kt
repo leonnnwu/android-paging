@@ -43,6 +43,7 @@ class GithubRepository(private val service: GithubService) {
 
     // keep channel of results. The channel allows us to broadcast updates so
     // the subscriber will have the latest data
+    // Back-to-send sent elements are conflated -- only the the most recently sent value is received, while previously sent elements are lost.
     private val searchResults = ConflatedBroadcastChannel<RepoSearchResult>()
 
     // keep the last requested page. When the request is successful, increment the page number.
